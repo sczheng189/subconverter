@@ -1,0 +1,13 @@
+.git
+build
+cmake-build-*
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.o
+*.a
+*.dylib
+*.so
+err.log
+err2.log

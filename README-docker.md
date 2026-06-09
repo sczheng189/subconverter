@@ -42,11 +42,20 @@ EXPOSE 25500
 ```
 Save the content above to a `Dockerfile`, then run:
 ```bash
-# build with this Dockerfile and tag it subconverter-custom
-docker build -t subconverter-custom:latest .
+# build with this Dockerfile and tag it subconverter
+docker build -t subconverter:latest .
 # run the docker detached, forward internal port 25500 to host port 25500
-docker run -d --restart=always -p 25500:25500 subconverter-custom:latest
+docker run -d --restart=always -p 25500:25500 subconverter:latest
 # then check its status
 curl http://localhost:25500/version
 # if you see `subconverter vx.x.x backend` then the container is up and running
 ```
+
+
+to build and push the image to Docker Hub for both amd64 and arm64 platforms, you can use the following command: 
+
+```bash
+docker buildx build --platform linux/amd64,linux/arm64 -t sczheng189/subconverter:latest . --push
+```
+
+
